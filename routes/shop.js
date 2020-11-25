@@ -10,6 +10,10 @@ router.get("/", shopController.getIndex);
 
 router.get("/products", shopController.getProduct);
 
+router.get("/products/delete");
+
+router.get("/products/:productId", shopController.getParticularProduct);
+
 router.get("/cart", shopController.getCart);
 
 router.get("/orders", shopController.getOrders);
