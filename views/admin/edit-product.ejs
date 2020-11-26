@@ -25,6 +25,7 @@
             <textarea name="description" id="description" rows="5"><% if (editing) { %> <%= product.description %> <% } %></textarea>
         </div>
         <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+        <% if (editing) { %><input type="hidden" name="productId" value="<%= product.id %>"><% } %>
     </form>
 </main>
 <%- include('../includes/end.ejs') %>
