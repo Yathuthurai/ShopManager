@@ -201,6 +201,28 @@ form {
   color: white;
 }
 
+.btn.danger {
+  color: red;
+  border-color: red;
+}
+
+.btn.danger:hover,
+.btn.danger:active {
+  background: red;
+  color: white;
+}
+
+.btn.success {
+  color: green;
+  border-color: green;
+}
+
+.btn.success:hover,
+.btn.success:active {
+  background: green;
+  color: white;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
