@@ -2,9 +2,9 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 
-const mongoConnect = require("./util/database").mongoConnect;
-const User = require("./models/user");
+// const User = require("./models/user");
 
 const app = express();
 
@@ -17,16 +17,16 @@ const shopRoutes = require("./routes/shop");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use((req, res, next) => {
-  User.findById("5fc7bacf590aed95b54a8643")
-    .then((user) => {
-      req.user = new User(user.name, user.email, user.cart, user._id);
-      next();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+// app.use((req, res, next) => {
+//   User.findById("5fc7bacf590aed95b54a8643")
+//     .then((user) => {
+//       req.user = new User(user.name, user.email, user.cart, user._id);
+//       next();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
@@ -35,6 +35,13 @@ app.use((req, res, next) => {
   res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
-mongoConnect(() => {
-  app.listen(3000);
-});
+mongoose
+  .connect(
+    "mongodb+srv://yathurshan:42rDYP6KloD4dqW9@cluster0.vsef0.mongodb.net/ShopManager?retryWrites=true&w=majority"
+  )
+  .then((result) => {
+    app.listen(3000);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
