@@ -70,10 +70,6 @@ exports.postCart = (req, res, next) => {
     .then((err) => {
       console.log(err);
     });
-  // Product.findById(prodId, (product) => {
-  //   Cart.addProduct(prodId, product.price);
-  // });
-  // res.redirect("/cart");
 };
 
 exports.postCartDeleteProduct = (req, res, next) => {
