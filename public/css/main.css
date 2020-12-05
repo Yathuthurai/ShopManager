@@ -233,6 +233,17 @@ form {
   color: white;
 }
 
+.btn.logout {
+  color: black;
+  border-color: transparent;
+}
+
+.btn.logout:hover,
+.btn.logout:active {
+  background: yellow;
+  color: black;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
