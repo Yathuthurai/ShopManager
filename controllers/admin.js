@@ -32,8 +32,7 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  Product.find()
-    // .populate("userId", "name")
+  Product.find({ userId: req.user._id })
     .then((products) => {
       console.log(products);
       res.render("admin/products", {
