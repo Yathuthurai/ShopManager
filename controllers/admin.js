@@ -1,6 +1,8 @@
 const Product = require("../models/product");
 const { validationResult } = require("express-validator/check");
 
+const mongoose = require("mongoose");
+
 exports.getAddProduct = (req, res, next) => {
   res.render("admin/edit-product", {
     pageTitle: "Add Product",
@@ -65,7 +67,7 @@ exports.getProducts = (req, res, next) => {
       });
     })
     .catch((err) => {
-      console.log(err);
+      res.redirect("/500");
     });
 };
 
