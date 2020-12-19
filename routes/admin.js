@@ -19,7 +19,6 @@ router.post(
   "/add-product",
   [
     body("title").isAlphanumeric().isLength({ min: 3 }).trim(),
-    body("imageUrl").isURL(),
     body("price").isFloat(),
     body("description").isLength({ min: 6, max: 200 }).trim(),
   ],
